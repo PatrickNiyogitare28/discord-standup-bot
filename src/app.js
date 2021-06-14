@@ -26,7 +26,7 @@ client.on('ready', () => {
 });
 
 
-let scheduledMessage = new cron.CronJob('00 09 23 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 12 23 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
