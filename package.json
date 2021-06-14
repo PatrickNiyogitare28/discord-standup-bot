@@ -1,0 +1,20 @@
+{
+  "name": "standup-notifier",
+  "version": "1.0.0",
+  "description": "Discord bot to notify the standup time dairy",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0",
+    "start": "node ./src/index.js",
+    "start:dev": "nodemon ./src/index.js"
+  },
+  "author": "patrickniyogitare28@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
