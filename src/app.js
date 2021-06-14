@@ -27,11 +27,11 @@ client.on('ready', () => {
 });
 
 
-let scheduledMessage = new cron.CronJob('00 52 21 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 57 21 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
-    channel.send(msg);
+    channel.send("hello it is time");
   });
   
 scheduledMessage.start()
