@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const Discord = require('discord.js');
 const fs = require('fs');
-const path = require('path');
 const cron = require('cron');
 const app = express();
 
@@ -22,12 +21,9 @@ const client = new Discord.Client({partials: ['MESSAGE']
 
 client.on('ready', () => {
     console.log("Client connected 🚀🚀🚀");
-    client.channels.cache.find(channel => channel.name === "standups").send("connected: "+new Date());
-
 });
 
-
-let scheduledMessage = new cron.CronJob('00 10 22 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 00 07 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
