@@ -8,7 +8,7 @@ const app = express();
 
 console.log(process.env.TZ);
 let msg;
-const template = path.join(__dirname+"\\templates\\standup.md");
+const template = "src/templates/standup.md";
 fs.readFile(template, 'utf8' , (err, data) => {
   if (err) {
     console.error(err)
@@ -27,11 +27,11 @@ client.on('ready', () => {
 });
 
 
-let scheduledMessage = new cron.CronJob('00 57 21 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 10 22 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
-    channel.send("hello it is time");
+    channel.send(msg);
   });
   
 scheduledMessage.start()
