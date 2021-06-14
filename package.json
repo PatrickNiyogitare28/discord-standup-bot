@@ -6,7 +6,7 @@
   "scripts": {
     "test": "exit 0",
     "start": "node ./src/index.js",
-    "start:dev": "SET TZ=Asia/Calcutta && nodemon ./src/index.js"
+    "start:dev": "nodemon ./src/index.js"
   },
   "author": "patrickniyogitare28@gmail.com",
   "license": "ISC",
