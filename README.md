@@ -26,7 +26,7 @@ The current version is serving to notify in the channel named `standups` and at 
  We are looking forward to receiving any contributing PR or Issue, It's need for a contributor to riview our [CONTRIBUTOR_COVENANT](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/CONTRIBUTOR_COVENANT.md) and  [CONTRIBUTING_PRACTICES](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/CONTRIBUTING.md)
 
 # License
-MIT
+The project is under [MIT](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/LICENSE) Licence 2021
 
 # Maintainer
  patrickniyogitare28@gmail.com
