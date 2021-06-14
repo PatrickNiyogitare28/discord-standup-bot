@@ -10,18 +10,17 @@ The bot sends a standup alert from Mon - Fri at 09:00 AM
 
 - Accept the bot to access your server
 - Create a channel and name it `standups`
-> The bot will notify in  a channel called standups which is reserved for standups
+    > The bot will notify in  a channel called standups which is reserved for standups
 
 # Notification sample
-<img src="">
+<img src="https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/assets/images/notification.PNG">
 
 # Next versions expectations
+The current version is serving to notify in the channel named `standups` and at a static time 09:00 AM
 - The bot is to be made highly dynamic to allow users to customize the standup time.
 - To allow standup notification in any channel of the choice not only `standups`
 - To customize the standup template
 
-# Next version expectation
- Current the bot is serving server channels name
 
 # For contributors
  We are looking forward to receiving any contributing PR or Issue, It's need for a contributor to riview our [CONTRIBUTOR_COVENANT](https://github.com/Rwanda-Coding-Academy/Valdie/CONTRIBUTOR_COVENANT.md)) and  [CONTRIBUTING_PRACTICES](https://github.com/Rwanda-Coding-Academy/Valdie/CONTRIBUTING.md)
