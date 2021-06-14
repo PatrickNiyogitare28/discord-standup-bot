@@ -27,12 +27,12 @@ client.on('ready', () => {
 });
 
 
-let scheduledMessage = new cron.CronJob('00 48 23 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 52 21 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
     channel.send(msg);
-  },null, true, 'Africa/Maputo');
+  });
   
 scheduledMessage.start()
 client.login(process.env.BOT_TOKEN);
