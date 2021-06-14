@@ -1,4 +1,9 @@
 # discord-standup-bot
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/LICENSE)
+[![External PRs not Accepted](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/CONTRIBUTOR_COVENANT.md)
+[![Open Source?Yes](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/green?icon=github)](https://github.com/PatrickNiyogitare28/discord-standup-bot/blob/main/CONTRIBUTING.md)
+
 A discord bot to notify when it's standup time implemented with discordjs. The bot provides the standard standup format.
 
 The bot sends a standup alert from Mon - Fri at 09:00 AM
