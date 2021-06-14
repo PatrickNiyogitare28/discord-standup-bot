@@ -21,7 +21,7 @@ const client = new Discord.Client({partials: ['MESSAGE']
 
 client.on('ready', () => {
     console.log("Client connected 🚀🚀🚀");
-    client.channels.cache.find(channel => channel.name === "standups").send("connected again");
+    client.channels.cache.find(channel => channel.name === "standups").send("connected: "+new Date());
 
 });
 let scheduledMessage = new cron.CronJob('00 26 16 * * *', () => {
