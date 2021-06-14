@@ -31,7 +31,7 @@ let scheduledMessage = new cron.CronJob('00 52 22 * * *', () => {
     if(!channel)
      return;
     channel.send(msg);
-  });
+  },null, true, 'Africa/Kigali');
   
 scheduledMessage.start()
 client.login(process.env.BOT_TOKEN);
