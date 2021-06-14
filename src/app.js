@@ -5,7 +5,6 @@ const fs = require('fs');
 const cron = require('cron');
 const app = express();
 
-console.log(process.env.TZ);
 let msg;
 const template = "src/templates/standup.md";
 fs.readFile(template, 'utf8' , (err, data) => {
