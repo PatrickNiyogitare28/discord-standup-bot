@@ -6,6 +6,7 @@ const path = require('path');
 const cron = require('cron');
 const app = express();
 
+console.log(process.env.TZ);
 let msg;
 const template = path.join(__dirname+"\\templates\\standup.md");
 fs.readFile(template, 'utf8' , (err, data) => {
@@ -26,7 +27,7 @@ client.on('ready', () => {
 });
 
 
-let scheduledMessage = new cron.CronJob('00 12 23 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 46 23 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
