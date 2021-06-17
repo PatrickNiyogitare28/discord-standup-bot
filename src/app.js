@@ -22,7 +22,7 @@ client.on('ready', () => {
     console.log("Client connected 🚀🚀🚀");
 });
 
-let scheduledMessage = new cron.CronJob('00 00 07 * * *', () => {
+let scheduledMessage = new cron.CronJob('00 12 04 * * *', () => {
     let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
