@@ -13,14 +13,14 @@ client.on('ready', () => {
 });
 
 client.on('message', (msg) => {
-  if(isAvalidStandup(msg.content) && msg.channel.name=="test" && !msg.author.bot)
+  if(isAvalidStandup(msg.content) && msg.channel.name=="standups" && !msg.author.bot)
     return msg.react("👍");
   return;
 });
 
 let scheduledMessage = new CronJob('00 00 05 * * *', async() => {
     let message = await readStandupTemplate();
-    let channel = client.channels.cache.find(channel => channel.name === "test");
+    let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
     channel.send(message);
@@ -28,7 +28,7 @@ let scheduledMessage = new CronJob('00 00 05 * * *', async() => {
 
 let scheduledReminder = new CronJob('00 00 11 * * *', async() => {
   let message = await readReminderTemplate();
-    let channel = client.channels.cache.find(channel => channel.name === "test");
+    let channel = client.channels.cache.find(channel => channel.name === "standups");
     if(!channel)
      return;
     channel.send(message);
