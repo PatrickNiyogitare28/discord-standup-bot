@@ -1,19 +1,9 @@
-require('dotenv').config();
-const express = require('express');
-const Discord = require('discord.js');
-const fs = require('fs');
-const cron = require('cron');
+import express from 'express';
+import Discord from 'discord.js';
+import isAvalidStandup from './utils/isValidStandup';
+import {readStandupTemplate, readReminderTemplate} from './helpers/readTemplates';
+import {CronJob} from 'cron';
 const app = express();
-
-let msg;
-const template = "src/templates/standup.md";
-fs.readFile(template, 'utf8' , (err, data) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  msg = data;
-})
 
 const client = new Discord.Client({partials: ['MESSAGE']
 });
@@ -22,14 +12,30 @@ client.on('ready', () => {
     console.log("Client connected 🚀🚀🚀");
 });
 
-let scheduledMessage = new cron.CronJob('00 10 05 * * *', () => {
-    let channel = client.channels.cache.find(channel => channel.name === "standups");
+client.on('message', (msg) => {
+  if(isAvalidStandup(msg.content) && msg.channel.name=="test" && !msg.author.bot)
+    return msg.react("👍");
+  return;
+});
+
+let scheduledMessage = new CronJob('00 017 16 * * *', async() => {
+    let message = await readStandupTemplate();
+    let channel = client.channels.cache.find(channel => channel.name === "test");
     if(!channel)
      return;
-    channel.send(msg);
-  });
+    channel.send(message);
+});
+
+let scheduledReminder = new CronJob('00 19 16 * * *', async() => {
+  let message = await readReminderTemplate();
+    let channel = client.channels.cache.find(channel => channel.name === "test");
+    if(!channel)
+     return;
+    channel.send(message);
+});
   
-scheduledMessage.start()
+scheduledMessage.start();
+scheduledReminder.start();
 client.login(process.env.BOT_TOKEN);
 
 module.exports = app;
