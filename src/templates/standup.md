@@ -1,13 +1,13 @@
-***Good morning champions! Let's provide our standups here***
+**Good morning champions! Let's provide our standups here**
 
-*Format*
+***Format***
 ``` 
   Yesterday I:
   Today I will: 
   Any blockers:
 ```
 
-*Example*
+***Example***
 ```
 Yesterday I: Did some design work for a change, one webpage layout and then started to convert it to CSS and HTML.
 

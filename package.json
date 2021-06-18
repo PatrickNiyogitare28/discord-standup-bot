@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "exit 0",
-    "start": "node ./src/index.js",
-    "start:dev": "nodemon ./src/index.js"
+    "start": "babel-node src/index.js",
+    "start:dev": "nodemon --exec babel-node ./src/index.js",
+    "start:prod": "npm run build && node ./build/src/index.js",
+    "build": "babel src --out-dir dist"
   },
   "author": "patrickniyogitare28@gmail.com",
   "license": "ISC",
@@ -15,6 +17,16 @@
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/plugin-transform-regenerator": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.10"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.7"
   }
 }
