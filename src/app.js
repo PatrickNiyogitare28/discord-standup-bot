@@ -18,7 +18,7 @@ client.on('message', (msg) => {
   return;
 });
 
-let scheduledMessage = new CronJob('00 30 16 * * *', async() => {
+let scheduledMessage = new CronJob('00 00 05 * * *', async() => {
     let message = await readStandupTemplate();
     let channel = client.channels.cache.find(channel => channel.name === "test");
     if(!channel)
@@ -26,7 +26,7 @@ let scheduledMessage = new CronJob('00 30 16 * * *', async() => {
     channel.send(message);
 });
 
-let scheduledReminder = new CronJob('00 31 16 * * *', async() => {
+let scheduledReminder = new CronJob('00 00 11 * * *', async() => {
   let message = await readReminderTemplate();
     let channel = client.channels.cache.find(channel => channel.name === "test");
     if(!channel)
