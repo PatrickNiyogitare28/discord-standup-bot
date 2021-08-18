@@ -3,6 +3,7 @@ import Discord from 'discord.js';
 import isAvalidStandup from './utils/isValidStandup';
 import {readStandupTemplate, readReminderTemplate} from './helpers/readTemplates';
 import {CronJob} from 'cron';
+import {channels} from './channels'
 const app = express();
 
 const client = new Discord.Client({partials: ['MESSAGE']
@@ -20,18 +21,23 @@ client.on('message', (msg) => {
 
 let scheduledMessage = new CronJob('00 20 05 * * *', async() => {
     let message = await readStandupTemplate();
-    let channel = client.channels.cache.find(channel => channel.name === "standups");
-    if(!channel)
-     return;
-    channel.send(message);
+    channels.forEach(channelItem => {
+      let channel = client.channels.cache.find(channel => channel.name === channelItem.name);
+      if(!channel)
+       return;
+      channel.send(message);
+    })
+   
 });
 
 let scheduledReminder = new CronJob('00 00 11 * * *', async() => {
   let message = await readReminderTemplate();
-    let channel = client.channels.cache.find(channel => channel.name === "standups");
-    if(!channel)
-     return;
-    channel.send(message);
+    channels.forEach(channelItem => {
+      let channel = client.channels.cache.find(channel => channel.name === channelItem.name);
+      if(!channel)
+      return;
+      channel.send(message);
+    })
 });
   
 scheduledMessage.start();
