@@ -19,7 +19,7 @@ client.on('message', (msg) => {
   return;
 });
 
-let scheduledMessage = new CronJob('00 47 06 * * *', async() => {
+let scheduledMessage = new CronJob('00 50 06 * * *', async() => {
     let message = await readStandupTemplate();
     channels.forEach(channelItem => {
       let channel = client.channels.cache.find(channel => channel.name == channelItem.name);
