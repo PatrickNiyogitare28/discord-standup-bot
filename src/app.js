@@ -19,10 +19,10 @@ client.on('message', (msg) => {
   return;
 });
 
-let scheduledMessage = new CronJob('00 35 06 * * *', async() => {
+let scheduledMessage = new CronJob('00 43 06 * * *', async() => {
     let message = await readStandupTemplate();
     channels.forEach(channelItem => {
-      let channel = client.channels.cache.find(channel => channel.name === channelItem.name);
+      let channel = client.channels.cache.find(channel => channel.name == channelItem.name);
       if(!channel)
        return;
       channel.send(message);
@@ -33,7 +33,7 @@ let scheduledMessage = new CronJob('00 35 06 * * *', async() => {
 let scheduledReminder = new CronJob('00 00 11 * * *', async() => {
   let message = await readReminderTemplate();
     channels.forEach(channelItem => {
-      let channel = client.channels.cache.find(channel => channel.name === channelItem.name);
+      let channel = client.channels.cache.find(channel => channel.name == channelItem.name);
       if(!channel)
       return;
       channel.send(message);
